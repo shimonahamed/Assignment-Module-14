@@ -49,3 +49,22 @@ exports.delete=async (req,res)=>{
     }
 }
 
+exports.complete=async(req,res)=>{
+    let email=req.headers['email'];
+    let {id}=req.params;
+    const {complete}=req.body;
+    try{
+        const task = await todoModel.findByIdAndUpdate(
+            id,
+            {email:email},
+            {complete},
+            {new:true}
+        )
+        res.json(task)
+
+    }
+    catch(error){
+        res.json({status:"fail",message:error})
+    }
+}
+
