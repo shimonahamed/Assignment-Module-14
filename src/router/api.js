@@ -24,6 +24,7 @@ router.post('/to-do-list/Create',Middleware,todoController.Create)
 router.get('/to-do-list/Read',Middleware,todoController.Read)
 router.post('/to-do-list/Update/:id',Middleware,todoController.Update)
 router.get('/to-do-list/Delete/:id',Middleware,todoController.delete)
+router.get('/task/complete/:id',Middleware,todoController.complete)
 
 
 
